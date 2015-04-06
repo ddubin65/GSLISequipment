@@ -4,13 +4,13 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/> .
+@base <http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/> .
 
-<http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/> rdf:type owl:Ontology ;
-                                                          
-                                                          owl:imports <http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/RDF/gslis.ttl> ;
-                                                          
-                                                          owl:versionIRI <http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/0.0.1/> .
+<http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/> rdf:type owl:Ontology ;
+                                                                          
+                                                                          owl:versionIRI <http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/0.0.1/> ;
+                                                                          
+                                                                          owl:imports <http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/gslis/> .
 
 
 #################################################################
@@ -20,7 +20,7 @@
 #################################################################
 
 
-###  http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/equipAssignee
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/equipAssignee
 
 :equipAssignee rdf:type owl:ObjectProperty ;
                
@@ -32,7 +32,7 @@
 
 
 
-###  http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/equipmentAssigned
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/equipmentAssigned
 
 :equipmentAssigned rdf:type owl:ObjectProperty ;
                    
@@ -44,7 +44,7 @@
 
 
 
-###  http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/maintainedBy
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/maintainedBy
 
 :maintainedBy rdf:type owl:ObjectProperty ;
               
@@ -65,7 +65,7 @@
 #################################################################
 
 
-###  http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/brand
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/brand
 
 :brand rdf:type owl:DatatypeProperty ;
        
@@ -75,15 +75,19 @@
 
 
 
-###  http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/equipDateAssigned
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/equipDateAssigned
 
 :equipDateAssigned rdf:type owl:DatatypeProperty ;
                    
-                   rdfs:comment "Date equipment assigned"^^xsd:dateTime .
+                   rdfs:comment "Date equipment assigned"^^xsd:dateTime ;
+                   
+                   rdfs:domain :EquipmentAssignment ;
+                   
+                   rdfs:range xsd:dateTime .
 
 
 
-###  http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/manufacturer
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/manufacturer
 
 :manufacturer rdf:type owl:DatatypeProperty ;
               
@@ -102,7 +106,7 @@
 #################################################################
 
 
-###  http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/Equipment
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/Equipment
 
 :Equipment rdf:type owl:Class ;
            
@@ -114,7 +118,7 @@
 
 
 
-###  http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/EquipmentAssignment
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/EquipmentAssignment
 
 :EquipmentAssignment rdf:type owl:Class ;
                      
@@ -131,22 +135,50 @@
 #################################################################
 
 
-###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/gslis/Laptop6
-
-<http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/gslis/Laptop6> rdf:type :Equipment .
-
-
-
-###  http://people.lis.illinois.edu/~ddubin/GSLIS/equipment/L6Assign
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/L6Assign
 
 :L6Assign rdf:type :EquipmentAssignment ,
                    owl:NamedIndividual ;
           
-          :equipDateAssigned "2015-03-30"^^xsd:dateTime ;
+          :equipDateAssigned "2015-03-30T08:30:00"^^xsd:dateTime ;
           
           :equipAssignee <http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/gslis/GSLIS_Help_Desk> ;
           
           :equipmentAssigned <http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/gslis/Laptop6> .
+
+
+
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/LIS000265
+
+:LIS000265 rdf:type :Equipment ,
+                    owl:NamedIndividual ;
+           
+           <http://purl.org/dc/elements/1.1/description> "Dubin's Polycom IP phone." ;
+           
+           :brand "HDvoice"@en ;
+           
+           :manufacturer "Polycom, Inc."@en ;
+           
+           :maintainedBy <http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/gslis/David_Dubin> .
+
+
+
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/GSLIS/equipment/Phone000265Assignment
+
+:Phone000265Assignment rdf:type :EquipmentAssignment ,
+                                owl:NamedIndividual ;
+                       
+                       :equipDateAssigned "2011-08-30T09:00:00"^^xsd:dateTime ;
+                       
+                       :equipmentAssigned :LIS000265 ;
+                       
+                       :equipAssignee <http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/gslis/David_Dubin> .
+
+
+
+###  http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/gslis/Laptop6
+
+<http://courseweb.lis.illinois.edu/lis/2015sp/lis590odl/gslis/Laptop6> rdf:type :Equipment .
 
 
 
